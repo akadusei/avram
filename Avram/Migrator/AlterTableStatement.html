@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="generator" content="Crystal Docs 1.10.1">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="avram">
 
@@ -682,18 +682,8 @@
       
     </li>
   
-  <li class="parent " data-id="avram/Avram/Model" data-name="avram::model">
+  <li class=" " data-id="avram/Avram/Model" data-name="avram::model">
       <a href="../../Avram/Model.html">Model</a>
-      
-        <ul>
-  
-  <li class=" " data-id="avram/Avram/Model/JSONConverter" data-name="avram::model::jsonconverter(t)">
-      <a href="../../Avram/Model/JSONConverter.html">JSONConverter</a>
-      
-    </li>
-  
-</ul>
-
       
     </li>
   
@@ -1547,6 +1537,11 @@
       
     </li>
   
+  <li class=" " data-id="avram/JSONConverter" data-name="jsonconverter(t)">
+      <a href="../../JSONConverter.html">JSONConverter</a>
+      
+    </li>
+  
   <li class=" " data-id="avram/Nil" data-name="nil">
       <a href="../../Nil.html">Nil</a>
       
@@ -1735,7 +1730,7 @@
   </h2>
   
     
-      <a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L4" target="_blank">
+      <a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L4" target="_blank">
         avram/migrator/alter_table_statement.cr
       </a>
     
@@ -1757,89 +1752,13 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28table_name%3ATableName%29-class-method" class="signature"><strong>.new</strong>(table_name : TableName)</a>
+        <a href="#new%28table_name%3ATableName%2C%2A%2Cif_exists%3ABool%3Dfalse%29-class-method" class="signature"><strong>.new</strong>(table_name : TableName, *, if_exists : Bool = <span class="n">false</span>)</a>
         
       </li>
     
   </ul>
 
 
-
-
-
-  <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#add_change_default_statement%28column%3AAvram%3A%3AMigrator%3A%3AColumns%3A%3ABase%29-instance-method" class="signature"><strong>#add_change_default_statement</strong>(column : Avram::Migrator::Columns::Base)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#add_change_type_statement%28column%3AAvram%3A%3AMigrator%3A%3AColumns%3A%3ABase%29-instance-method" class="signature"><strong>#add_change_type_statement</strong>(column : Avram::Migrator::Columns::Base)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#add_fill_existing_with_statements%28column%3ASymbol%7CString%2Ctype%2Cvalue%2Cnilable%29-instance-method" class="signature"><strong>#add_fill_existing_with_statements</strong>(column : Symbol | String, type, value, nilable)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#alter_statements%3AArray%28String%29-instance-method" class="signature"><strong>#alter_statements</strong> : Array(String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#build%28%26%29-instance-method" class="signature"><strong>#build</strong>(&)</a>
-        
-          <div class="summary"><p>Accepts a block to alter a table using the <code><a href="../../Avram/Migrator/AlterTableStatement.html#add%28type_declaration%2Cindex%3Dfalse%2Cusing%3D%3Abtree%2Cunique%3Dfalse%2Cdefault%3Dnil%2Cfill_existing_with%3Dnil%2C%2A%2Atype_options%29-macro">add</a></code> method.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#change_default_statements%3AArray%28String%29-instance-method" class="signature"><strong>#change_default_statements</strong> : Array(String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#change_type_statements%3AArray%28String%29-instance-method" class="signature"><strong>#change_type_statements</strong> : Array(String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#dropped_rows%3AArray%28String%29-instance-method" class="signature"><strong>#dropped_rows</strong> : Array(String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#fill_existing_with_statements%3AArray%28String%29-instance-method" class="signature"><strong>#fill_existing_with_statements</strong> : Array(String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#renamed_rows%3AArray%28String%29-instance-method" class="signature"><strong>#renamed_rows</strong> : Array(String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#rows%3AArray%28String%29-instance-method" class="signature"><strong>#rows</strong> : Array(String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#statements-instance-method" class="signature"><strong>#statements</strong></a>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -1908,6 +1827,87 @@
 
 
 
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#add_change_default_statement%28column%3AAvram%3A%3AMigrator%3A%3AColumns%3A%3ABase%29-instance-method" class="signature"><strong>#add_change_default_statement</strong>(column : Avram::Migrator::Columns::Base)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add_change_type_statement%28column%3AAvram%3A%3AMigrator%3A%3AColumns%3A%3ABase%29-instance-method" class="signature"><strong>#add_change_type_statement</strong>(column : Avram::Migrator::Columns::Base)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add_fill_existing_with_statements%28column%3ASymbol%7CString%2Ctype%2Cvalue%2Cnilable%29-instance-method" class="signature"><strong>#add_fill_existing_with_statements</strong>(column : Symbol | String, type, value, nilable)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#alter_statements%3AArray%28String%29-instance-method" class="signature"><strong>#alter_statements</strong> : Array(String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#build%28%26%29-instance-method" class="signature"><strong>#build</strong>(&)</a>
+        
+          <div class="summary"><p>Accepts a block to alter a table using the <code><a href="../../Avram/Migrator/AlterTableStatement.html#add%28type_declaration%2Cindex%3Dfalse%2Cusing%3D%3Abtree%2Cunique%3Dfalse%2Cdefault%3Dnil%2Cfill_existing_with%3Dnil%2C%2A%2Atype_options%29-macro">add</a></code> method.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#change_default_statements%3AArray%28String%29-instance-method" class="signature"><strong>#change_default_statements</strong> : Array(String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#change_type_statements%3AArray%28String%29-instance-method" class="signature"><strong>#change_type_statements</strong> : Array(String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dropped_rows%3AArray%28String%29-instance-method" class="signature"><strong>#dropped_rows</strong> : Array(String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fill_existing_with_statements%3AArray%28String%29-instance-method" class="signature"><strong>#fill_existing_with_statements</strong> : Array(String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#if_exists_statement-instance-method" class="signature"><strong>#if_exists_statement</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#renamed_rows%3AArray%28String%29-instance-method" class="signature"><strong>#renamed_rows</strong> : Array(String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#rows%3AArray%28String%29-instance-method" class="signature"><strong>#rows</strong> : Array(String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#statements-instance-method" class="signature"><strong>#statements</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
 <div class="methods-inherited">
   
     
@@ -1917,6 +1917,18 @@
 
 
     
+
+
+    
+
+  <h3>Macros inherited from module <code><a href="../../Avram/Migrator/MissingOnDeleteWithBelongsToError.html">Avram::Migrator::MissingOnDeleteWithBelongsToError</a></code></h3>
+  
+  
+    <a href="../../Avram/Migrator/MissingOnDeleteWithBelongsToError.html#add_belongs_to%28type_declaration%2Creferences%3Dnil%29-macro" class="tooltip">
+      <span>add_belongs_to(type_declaration, references = <span class="n">nil</span>)</span>
+    add_belongs_to</a>
+    
+  
 
 
   
@@ -1943,7 +1955,13 @@
     
 
 
+    
+
+
   
+    
+
+
     
 
 
@@ -1972,6 +1990,9 @@
     
 
 
+    
+
+
   
 </div>
 
@@ -1985,24 +2006,204 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(table_name:TableName)-class-method">
+    <div class="entry-detail" id="new(table_name:TableName,*,if_exists:Bool=false)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(table_name : <a href="../../Avram/TableName.html">TableName</a>)
+        def self.<strong>new</strong>(table_name : <a href="../../Avram/TableName.html">TableName</a>, *, if_exists : <a href="../../Bool.html">Bool</a> = <span class="n">false</span>)
 
-        <a class="method-permalink" href="#new%28table_name%3ATableName%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28table_name%3ATableName%2C%2A%2Cif_exists%3ABool%3Dfalse%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
   
 
 
+
+
+
+  <h2>
+    <a id="macro-detail" class="anchor" href="#macro-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Macro Detail
+  </h2>
+  
+    <div class="entry-detail" id="add(type_declaration,index=false,using=:btree,unique=false,default=nil,fill_existing_with=nil,**type_options)-macro">
+      <div class="signature">
+        
+        macro <strong>add</strong>(type_declaration, index = <span class="n">false</span>, using = <span class="n">:btree</span>, unique = <span class="n">false</span>, default = <span class="n">nil</span>, fill_existing_with = <span class="n">nil</span>, **type_options)
+
+        <a class="method-permalink" href="#add%28type_declaration%2Cindex%3Dfalse%2Cusing%3D%3Abtree%2Cunique%3Dfalse%2Cdefault%3Dnil%2Cfill_existing_with%3Dnil%2C%2A%2Atype_options%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L188" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add_belongs_to(type_declaration,on_delete,references=nil,foreign_key_type=Int64,fill_existing_with=nil,unique=false)-macro">
+      <div class="signature">
+        
+        macro <strong>add_belongs_to</strong>(type_declaration, on_delete, references = <span class="n">nil</span>, foreign_key_type = <span class="t">Int64</span>, fill_existing_with = <span class="n">nil</span>, unique = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#add_belongs_to%28type_declaration%2Con_delete%2Creferences%3Dnil%2Cforeign_key_type%3DInt64%2Cfill_existing_with%3Dnil%2Cunique%3Dfalse%29-macro">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Adds a references column and index given a model class and references option.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L142" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="change_default(type_declaration,default)-macro">
+      <div class="signature">
+        
+        macro <strong>change_default</strong>(type_declaration, default)
+
+        <a class="method-permalink" href="#change_default%28type_declaration%2Cdefault%29-macro">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Change the columns' default value to <code>default</code></p>
+<pre><code class="language-crystal">alter table_for(<span class="t">Post</span>) <span class="k">do</span>
+  change_default published_at, default: <span class="n">:now</span>
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L69" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="change_type(type_declaration,**type_options)-macro">
+      <div class="signature">
+        
+        macro <strong>change_type</strong>(type_declaration, **type_options)
+
+        <a class="method-permalink" href="#change_type%28type_declaration%2C%2A%2Atype_options%29-macro">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Change the column's type from whatever it is currently to
+<code>type_declaration.type</code>. The only exceptions are when changing
+from <code>text</code> to <code>citext</code> with <code><a href="../../String.html">String</a></code> using <code>case_sensitive</code>, or changing to
+a <code><a href="../../Float64.html">Float64</a></code> column which requires setting the <code>precision</code>, and <code>scale</code>.</p>
+<pre><code class="language-crystal">alter table_for(<span class="t">User</span>) <span class="k">do</span>
+  change_type email : <span class="t">String</span>, case_sensitive: <span class="n">false</span>
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L28" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove(name)-macro">
+      <div class="signature">
+        
+        macro <strong>remove</strong>(name)
+
+        <a class="method-permalink" href="#remove%28name%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L301" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_belongs_to(association_name)-macro">
+      <div class="signature">
+        
+        macro <strong>remove_belongs_to</strong>(association_name)
+
+        <a class="method-permalink" href="#remove_belongs_to%28association_name%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L308" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="rename(old_name,new_name)-macro">
+      <div class="signature">
+        
+        macro <strong>rename</strong>(old_name, new_name)
+
+        <a class="method-permalink" href="#rename%28old_name%2Cnew_name%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L283" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="rename_belongs_to(old_association_name,new_association_name)-macro">
+      <div class="signature">
+        
+        macro <strong>rename_belongs_to</strong>(old_association_name, new_association_name)
+
+        <a class="method-permalink" href="#rename_belongs_to%28old_association_name%2Cnew_association_name%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L292" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="symbol_expected_error(action,name)-macro">
+      <div class="signature">
+        
+        macro <strong>symbol_expected_error</strong>(action, name)
+
+        <a class="method-permalink" href="#symbol_expected_error%28action%2Cname%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L262" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
@@ -2026,7 +2227,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L86" target="_blank">View source</a>]
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L87" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2042,7 +2243,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L82" target="_blank">View source</a>]
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L83" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2058,7 +2259,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L250" target="_blank">View source</a>]
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L257" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2074,7 +2275,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L119" target="_blank">View source</a>]
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L126" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2114,7 +2315,7 @@ built.statements
       <br/>
       <div>
         
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L110" target="_blank">View source</a>]
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L111" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2130,7 +2331,7 @@ built.statements
       <br/>
       <div>
         
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2146,7 +2347,7 @@ built.statements
       <br/>
       <div>
         
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2162,7 +2363,7 @@ built.statements
       <br/>
       <div>
         
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L10" target="_blank">View source</a>]
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2178,7 +2379,23 @@ built.statements
       <br/>
       <div>
         
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="if_exists_statement-instance-method">
+      <div class="signature">
+        
+        def <strong>if_exists_statement</strong>
+
+        <a class="method-permalink" href="#if_exists_statement-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L120" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2194,7 +2411,7 @@ built.statements
       <br/>
       <div>
         
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L9" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2210,7 +2427,7 @@ built.statements
       <br/>
       <div>
         
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2226,187 +2443,7 @@ built.statements
       <br/>
       <div>
         
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L115" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-
-
-
-  <h2>
-    <a id="macro-detail" class="anchor" href="#macro-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Macro Detail
-  </h2>
-  
-    <div class="entry-detail" id="add(type_declaration,index=false,using=:btree,unique=false,default=nil,fill_existing_with=nil,**type_options)-macro">
-      <div class="signature">
-        
-        macro <strong>add</strong>(type_declaration, index = <span class="n">false</span>, using = <span class="n">:btree</span>, unique = <span class="n">false</span>, default = <span class="n">nil</span>, fill_existing_with = <span class="n">nil</span>, **type_options)
-
-        <a class="method-permalink" href="#add%28type_declaration%2Cindex%3Dfalse%2Cusing%3D%3Abtree%2Cunique%3Dfalse%2Cdefault%3Dnil%2Cfill_existing_with%3Dnil%2C%2A%2Atype_options%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L181" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="add_belongs_to(type_declaration,on_delete,references=nil,foreign_key_type=Int64,fill_existing_with=nil,unique=false)-macro">
-      <div class="signature">
-        
-        macro <strong>add_belongs_to</strong>(type_declaration, on_delete, references = <span class="n">nil</span>, foreign_key_type = <span class="t">Int64</span>, fill_existing_with = <span class="n">nil</span>, unique = <span class="n">false</span>)
-
-        <a class="method-permalink" href="#add_belongs_to%28type_declaration%2Con_delete%2Creferences%3Dnil%2Cforeign_key_type%3DInt64%2Cfill_existing_with%3Dnil%2Cunique%3Dfalse%29-macro">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Adds a references column and index given a model class and references option.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L135" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="change_default(type_declaration,default)-macro">
-      <div class="signature">
-        
-        macro <strong>change_default</strong>(type_declaration, default)
-
-        <a class="method-permalink" href="#change_default%28type_declaration%2Cdefault%29-macro">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Change the columns' default value to <code>default</code></p>
-<pre><code class="language-crystal">alter table_for(<span class="t">Post</span>) <span class="k">do</span>
-  change_default published_at, default: <span class="n">:now</span>
-<span class="k">end</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L68" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="change_type(type_declaration,**type_options)-macro">
-      <div class="signature">
-        
-        macro <strong>change_type</strong>(type_declaration, **type_options)
-
-        <a class="method-permalink" href="#change_type%28type_declaration%2C%2A%2Atype_options%29-macro">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Change the column's type from whatever it is currently to
-<code>type_declaration.type</code>. The only exceptions are when changing
-from <code>text</code> to <code>citext</code> with <code><a href="../../String.html">String</a></code> using <code>case_sensitive</code>, or changing to
-a <code><a href="../../Float64.html">Float64</a></code> column which requires setting the <code>precision</code>, and <code>scale</code>.</p>
-<pre><code class="language-crystal">alter table_for(<span class="t">User</span>) <span class="k">do</span>
-  change_type email : <span class="t">String</span>, case_sensitive: <span class="n">false</span>
-<span class="k">end</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L27" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="remove(name)-macro">
-      <div class="signature">
-        
-        macro <strong>remove</strong>(name)
-
-        <a class="method-permalink" href="#remove%28name%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L294" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="remove_belongs_to(association_name)-macro">
-      <div class="signature">
-        
-        macro <strong>remove_belongs_to</strong>(association_name)
-
-        <a class="method-permalink" href="#remove_belongs_to%28association_name%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L301" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="rename(old_name,new_name)-macro">
-      <div class="signature">
-        
-        macro <strong>rename</strong>(old_name, new_name)
-
-        <a class="method-permalink" href="#rename%28old_name%2Cnew_name%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L276" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="rename_belongs_to(old_association_name,new_association_name)-macro">
-      <div class="signature">
-        
-        macro <strong>rename_belongs_to</strong>(old_association_name, new_association_name)
-
-        <a class="method-permalink" href="#rename_belongs_to%28old_association_name%2Cnew_association_name%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L285" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="symbol_expected_error(action,name)-macro">
-      <div class="signature">
-        
-        macro <strong>symbol_expected_error</strong>(action, name)
-
-        <a class="method-permalink" href="#symbol_expected_error%28action%2Cname%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/akadusei/avram/blob/0b9797b918373615bafea54986849bb886ec239b/src/avram/migrator/alter_table_statement.cr#L255" target="_blank">View source</a>]
+          [<a href="https://github.com/akadusei/avram/blob/f1bfffcb1949ca391bc39444950e3514dc848b7d/src/avram/migrator/alter_table_statement.cr#L116" target="_blank">View source</a>]
         
       </div>
     </div>
