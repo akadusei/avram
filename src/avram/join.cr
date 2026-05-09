@@ -4,6 +4,20 @@ module Avram::Join
   abstract class SqlClause
     getter from : TableName
 
+    macro inherited
+      inherited_def_clone
+    end
+
+    macro inherited_def_clone
+      \{% unless @type.abstract? %}
+        def_clone
+      \{% end %}
+
+      macro inherited
+        inherited_def_clone
+      end
+    end
+
     @using : String
 
     def initialize(
@@ -49,10 +63,6 @@ module Avram::Join
 
     def default_foreign_key : String
       "#{Wordsmith::Inflector.singularize(@from.to_s)}_id"
-    end
-
-    def clone : self
-      self
     end
   end
 

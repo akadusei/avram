@@ -17,13 +17,23 @@ module Avram::Where
   end
 
   abstract class Condition
+    macro inherited
+      inherited_def_clone
+    end
+
+    macro inherited_def_clone
+      \{% unless @type.abstract? %}
+        def_clone
+      \{% end %}
+
+      macro inherited
+        inherited_def_clone
+      end
+    end
+
     property conjunction : Conjunction = Conjunction::And
 
     abstract def prepare(placeholder_supplier : Proc(String)) : String
-
-    def clone
-      self
-    end
   end
 
   class PrecedenceStart < Condition
