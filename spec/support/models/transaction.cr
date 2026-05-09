@@ -17,7 +17,7 @@ class TransactionQuery < Transaction::BaseQuery
   include Avram::SoftDelete::Query
 
   def initialize
-    defaults &.only_kept
+    only_kept
   end
 
   def special

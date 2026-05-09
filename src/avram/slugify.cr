@@ -71,7 +71,7 @@ module Avram::Slugify
     slug_candidates = format_candidates(slug_candidates)
 
     result = slug_candidates.find { |candidate|
-      query.where(slug.name, candidate).none?
+      query.clone.where(slug.name, candidate).none?
     }
 
     if result

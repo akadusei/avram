@@ -36,7 +36,7 @@ module Lucky::Paginator::BackendHelpers
       item_count: query.clone.reset_order.reset_limit.reset_offset.select_count,
       full_path: context.request.resource
 
-    updated_query = query.limit(pages.per_page).offset(pages.offset)
+    updated_query = query.clone.limit(pages.per_page).offset(pages.offset)
     {pages, updated_query}
   end
 end

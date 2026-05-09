@@ -7,7 +7,7 @@ module Avram::PrimaryKeyQueryable(T)
     end
 
     def find(id) : T
-      id(id).first? || raise Avram::RecordNotFoundError.new(model: table_name, id: id.to_s)
+      clone.id(id).first? || raise Avram::RecordNotFoundError.new(model: table_name, id: id.to_s)
     end
 
     {% primary_key_name = T.constant("PRIMARY_KEY_NAME") %}
@@ -19,7 +19,7 @@ module Avram::PrimaryKeyQueryable(T)
       end
     {% end %}
 
-    private def with_ordered_query : self
+    protected def with_ordered_query : self
       if query.ordered?
         self
       else

@@ -13,6 +13,6 @@ class FollowQuery < Follow::BaseQuery
   include Avram::SoftDelete::Query
 
   def initialize
-    defaults &.only_kept
+    only_kept
   end
 end

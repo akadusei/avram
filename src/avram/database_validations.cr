@@ -105,7 +105,7 @@ module Avram::DatabaseValidations(T)
 
   private def limit_query(query)
     record.try(&.id).try do |id|
-      query = query.id.not.eq(id)
+      query.id.not.eq(id)
     end
     query
   end

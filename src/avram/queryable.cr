@@ -68,28 +68,32 @@ module Avram::Queryable(T)
   end
 
   def distinct : self
-    clone.tap &.query.distinct
+    query.distinct
+    self
   end
 
   def reset_order : self
-    clone.tap &.query.reset_order
+    query.reset_order
+    self
   end
 
   def reset_limit : self
-    clone.tap &.query.limit(nil)
+    query.limit(nil)
+    self
   end
 
   def reset_offset : self
-    clone.tap &.query.offset(nil)
+    query.offset(nil)
+    self
   end
 
   def distinct_on(&) : self
-    criteria = yield clone
+    criteria = yield self
     criteria.private_distinct_on
   end
 
   def reset_where(&) : self
-    criteria = yield clone
+    criteria = yield self
     criteria.private_reset_where
   end
 
@@ -102,12 +106,8 @@ module Avram::Queryable(T)
   # UserQuery.new.age.lt(21).delete
   # ```
   def delete : Int64
-    clone.delete!
-  end
-
-  protected def delete! : Int64
-    new_query = query.clone.delete
-    write_database.exec(new_query.statement, args: new_query.args).rows_affected
+    query = clone.query.delete
+    write_database.exec(query.statement, args: query.args).rows_affected
   end
 
   # Update the records using the query's where clauses, or all records if no wheres are added.
@@ -121,11 +121,13 @@ module Avram::Queryable(T)
   abstract def update : Int64
 
   def join(join_clause : Avram::Join::SqlClause) : self
-    clone.tap &.query.join(join_clause)
+    query.join(join_clause)
+    self
   end
 
   def where(column : Symbol, value) : self
-    clone.tap &.query.where(Avram::Where::Equal.new(column, value.to_s))
+    query.where(Avram::Where::Equal.new(column, value.to_s))
+    self
   end
 
   def where(statement : String, *bind_vars) : self
@@ -133,11 +135,13 @@ module Avram::Queryable(T)
   end
 
   def where(statement : String, *, args bind_vars : Array) : self
-    clone.tap &.query.where(Avram::Where::Raw.new(statement, args: bind_vars))
+    query.where(Avram::Where::Raw.new(statement, args: bind_vars))
+    self
   end
 
   def where(sql_clause : Avram::Where::SqlClause) : self
-    clone.tap &.query.where(sql_clause)
+    query.where(sql_clause)
+    self
   end
 
   def where(&) : self
@@ -146,15 +150,16 @@ module Avram::Queryable(T)
 
     # If no query was added to the yielded block, we remove the precedence
     if result.query.wheres.last.is_a?(Avram::Where::PrecedenceStart)
-      result.clone.tap &.query.remove_last_where
+      result.tap &.query.remove_last_where
     else
-      cloned = result.clone.tap &.query.clear_conjunction
-      cloned.clone.tap &.query.where(Avram::Where::PrecedenceEnd.new)
+      result.query.clear_conjunction
+      result.tap &.query.where(Avram::Where::PrecedenceEnd.new)
     end
   end
 
   def merge_query(query_to_merge : Avram::QueryBuilder) : self
-    clone.tap &.query.merge(query_to_merge)
+    query.merge(query_to_merge)
+    self
   end
 
   # Run the `or` block first to grab the last WHERE clause and set its
@@ -172,36 +177,43 @@ module Avram::Queryable(T)
   end
 
   def order_by(order : Avram::OrderByClause) : self
-    clone.tap &.query.order_by(order)
+    query.order_by(order)
+    self
   end
 
   def random_order : self
-    clone.tap &.query.random_order
+    query.random_order
+    self
   end
 
   def group(&) : self
-    criteria = yield clone
+    criteria = yield self
     criteria.private_group
   end
 
   def none : self
-    clone.tap &.query.where(Avram::Where::Equal.new("1", "0"))
+    query.where(Avram::Where::Equal.new("1", "0"))
+    self
   end
 
   def limit(amount) : self
-    clone.tap &.query.limit(amount)
+    query.limit(amount)
+    self
   end
 
   def offset(amount) : self
-    clone.tap &.query.offset(amount)
+    query.offset(amount)
+    self
   end
 
   def for_update : self
-    clone.tap &.query.for_update
+    query.for_update
+    self
   end
 
   def first? : T?
-    with_ordered_query
+    clone
+      .with_ordered_query
       .limit(1)
       .results
       .first?
@@ -212,8 +224,8 @@ module Avram::Queryable(T)
   end
 
   def last? : T?
-    with_ordered_query
-      .clone
+    clone
+      .with_ordered_query
       .tap(&.query.reverse_order)
       .limit(1)
       .results
@@ -226,8 +238,7 @@ module Avram::Queryable(T)
 
   def any? : Bool
     cache_store.fetch(cache_key(:any?), as: Bool) do
-      queryable = clone
-      new_query = queryable.query.limit(1).select("1 AS one")
+      new_query = clone.query.limit(1).select("1 AS one")
       results = read_database.query_one?(new_query.statement, args: new_query.args, queryable: schema_class.name, as: (Int32 | Int64))
       !results.nil?
     end
@@ -239,6 +250,8 @@ module Avram::Queryable(T)
 
   def select_count : Int64
     cache_store.fetch(cache_key(:select_count), as: Int64) do
+      query = clone.query
+
       begin
         table = "(#{query.statement}) AS temp"
         new_query = Avram::QueryBuilder.new(table).select_count
@@ -254,6 +267,8 @@ module Avram::Queryable(T)
   alias PGValue = Bool | Float32 | Float64 | Int16 | Int32 | Int64 | PG::Numeric | String | Time | UUID | Nil
 
   def group_count : Hash(Array(PGValue), Int64)
+    query = clone.query
+
     read_database.query_all(
       query.select_direct(query.groups + ["COUNT(*)"]).statement,
       args: query.args,
@@ -299,13 +314,15 @@ module Avram::Queryable(T)
   end
 
   private def exec_query
+    query = clone.query
+
     read_database.query query.statement, args: query.args, queryable: schema_class.name do |result_set|
       schema_class.from_rs(result_set)
     end
   end
 
   def exec_scalar(&)
-    new_query = yield query.clone
+    new_query = yield clone.query
     read_database.scalar new_query.statement, args: new_query.args, queryable: schema_class.name
   end
 
@@ -319,13 +336,14 @@ module Avram::Queryable(T)
   #   end
   # end
   # ```
+  @[Deprecated("Call the relevant methods directly in #initialize")]
   private def defaults(&) : Nil
     default = yield self
 
     self.query = default.query
   end
 
-  private def with_ordered_query : self
+  protected def with_ordered_query : self
     self
   end
 
